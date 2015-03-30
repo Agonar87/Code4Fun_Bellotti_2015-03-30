@@ -55,6 +55,12 @@
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Code4Fun_Bellotti\Code4Fun_Bellotti.csproj">
+      <Project>{A25B5975-630E-414A-AEBF-11BD9542FBB9}</Project>
+      <Name>Code4Fun_Bellotti</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
