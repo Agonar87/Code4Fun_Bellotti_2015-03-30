@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Code4Fun_Bellotti
@@ -22,6 +23,11 @@ namespace Code4Fun_Bellotti
 
 			//Returning result
 		    return result;
+	    }
+
+	    public static string PrintSpiral(int[][] matrix)
+	    {
+		    return null;
 	    }
     }
 }

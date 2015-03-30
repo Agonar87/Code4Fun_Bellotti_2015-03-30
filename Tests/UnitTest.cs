@@ -23,5 +23,23 @@ namespace Tests
 			//Reporting the result
 			Console.Write("The sum of all the multiples of {0} below {1} (excluded) is: {2}", String.Join(" or ", multiples), maxValue, result);
 		}
+
+		public void Test_PrintSpiral()
+		{
+			var matrix = new[]
+			{ 
+				new[] {1, 2, 3, 4}, 
+				new[] {5, 6, 7, 8}, 
+				new[] {9, 10, 11, 12}, 
+				new[] {13, 14, 15, 16}, 
+				new[] {17, 18, 19, 20}
+			};
+			
+			//Getting the result
+			var result = Methods.PrintSpiral(matrix);
+
+			//Reporting the result
+			Console.Write("The matrix printed 'spiral' looks like this: {0}", result);
+		}
 	}
 }
