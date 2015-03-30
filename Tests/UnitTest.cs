@@ -40,7 +40,8 @@ namespace Tests
 			var result = Methods.PrintSpiral(matrix);
 			
 			//Asserting result is like the expected (from problems)
-			Assert.IsTrue("1, 2, 3, 4, 8, 12, 16, 20, 19, 18, 17, 13, 9, 5, 6, 7, 11, 15, 14, 10" == result);
+			const string expected = "1, 2, 3, 4, 8, 12, 16, 20, 19, 18, 17, 13, 9, 5, 6, 7, 11, 15, 14, 10";
+			Assert.IsTrue(expected == result, String.Format("Expected {0}, found {1}", expected, result));
 
 			//Reporting the result
 			Console.Write("The matrix printed 'spiral' looks like this: {0}", result);

@@ -18,8 +18,9 @@ namespace Code4Fun_Bellotti
 		    var result = 0;
 
 			//Cicle which adds the number only if it is a multiple of a number in the list
-		    for (var i = 0; i < maxValue; i++)		    
-				result += multiples.Any(x => i % x == 0) ? i : 0;		    
+			//Skipping i = 0 for obvious reasons
+		    for (var i = 1; i < maxValue; i++)		    
+				result += multiples.Any(x => i % x == 0) ? i : 0;
 
 			//Returning result
 		    return result;
@@ -32,12 +33,12 @@ namespace Code4Fun_Bellotti
 		/// <returns>A string representing the matrix unwrapped in spiral order</returns>
 	    public static string PrintSpiral(int[][] matrix)
 	    {
-			if(matrix.Length == 0 || 
-				matrix.Length == 1 || 
-				matrix.First().Length == 0 || 
-				matrix.First().Length == 1)
+			//Checking that it is a matrix having at least 2 rows and 2 columns
+			if(matrix.Length <= 1 || 
+				matrix.First().Length <= 1)
 				throw new ArgumentException("Matrix not well formed");
 
+			//Ordered list of the items to print
 			var result = new List<int>();
 
 		    int startingRowIndex = 0, startingColumnIndex = 0;
@@ -46,33 +47,33 @@ namespace Code4Fun_Bellotti
  
 			while (startingRowIndex < endingRow && startingColumnIndex < endingColumn)
 			{
-				/* Print the first row from the remaining rows */
+				//Print the first row from the remaining rows
 				int iterator;
-				for (iterator = startingColumnIndex; iterator < endingColumn; ++iterator)				
+				for (iterator = startingColumnIndex; iterator < endingColumn; iterator++)				
 					result.Add(matrix[startingRowIndex][iterator]);
 				
 				startingRowIndex++;
  
-				/* Print the last column from the remaining columns */
-				for (iterator = startingRowIndex; iterator < endingRow; ++iterator)				
+				//Print the last column from the remaining columns
+				for (iterator = startingRowIndex; iterator < endingRow; iterator++)				
 					result.Add(matrix[iterator][endingColumn-1]);
 				
 				endingColumn--;
  
-				/* Print the last row from the remaining rows */
+				//Print the last row from the remaining rows
 				if ( startingRowIndex < endingRow)
 				{
-					for (iterator = endingColumn-1; iterator >= startingColumnIndex; --iterator)					
+					for (iterator = endingColumn-1; iterator >= startingColumnIndex; iterator--)					
 						result.Add(matrix[endingRow-1][iterator]);
 					
 					endingRow--;
 				}
  
-				/* Print the first column from the remaining columns */
+				//Print the first column from the remaining columns
 				if (startingColumnIndex >= endingColumn) 
 					continue;
 
-				for (iterator = endingRow-1; iterator >= startingRowIndex; --iterator)					
+				for (iterator = endingRow-1; iterator >= startingRowIndex; iterator--)					
 					result.Add(matrix[iterator][startingColumnIndex]);
 					
 				startingColumnIndex++;
