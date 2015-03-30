@@ -23,7 +23,8 @@ namespace Tests
 			//Reporting the result
 			Console.Write("The sum of all the multiples of {0} below {1} (excluded) is: {2}", String.Join(" or ", multiples), maxValue, result);
 		}
-
+		
+		[TestMethod]
 		public void Test_PrintSpiral()
 		{
 			var matrix = new[]
@@ -37,6 +38,9 @@ namespace Tests
 			
 			//Getting the result
 			var result = Methods.PrintSpiral(matrix);
+			
+			//Asserting result is not null
+			Assert.IsNotNull(result);
 
 			//Reporting the result
 			Console.Write("The matrix printed 'spiral' looks like this: {0}", result);
